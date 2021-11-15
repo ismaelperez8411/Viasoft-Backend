@@ -65,9 +65,9 @@ public class ViasoftApplication implements CommandLineRunner {
 				servHist.setMainService(nvs);
 				servHist.setAutorizacion(getEstate(tdCells.get(1).html()));
 				servHist.setAutorizacionDevolucion(getEstate(tdCells.get(2).html()));
-				servHist.setDiscapacidad(getEstate(tdCells.get(3).html()));
+				servHist.setDiscapacidad(getEstate(tdCells.get(5).html()));
 				servHist.setConsultaProtocolo(getEstate(tdCells.get(4).html()));
-				servHist.setEstadoServicio(getEstate(tdCells.get(5).html()));
+				servHist.setEstadoServicio(getEstate(tdCells.get(3).html()));
 				servHist.setTiempoMedio(tdCells.get(6).html());
 				servHist.setConsultaRegistro(getEstate(tdCells.get(7).html()));
 				servHist.setRecepcionEventos(getEstate(tdCells.get(8).html()));

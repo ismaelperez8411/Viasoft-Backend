@@ -44,16 +44,34 @@ public class InvoiceHistory {
 
     }
 
-    public InvoiceHistory(String autorizador, Integer autorizacion, Integer autorizacion_devolucion,
-            Integer consulta_protocolo, Integer consulta_registro, Integer discapacidad, Integer estado_servicio,
-            Integer recepcion_eventos, String tiempo_medio) {
+    /*
+    inv.autorizador,
+	invh.autorizacion,
+	invh.autorizacion_devolucion,
+	invh.consulta_protocolo,
+	invh.consulta_registro,
+	invh.discapacidad,
+	invh.estado_servicio,
+	invh.recepcion_eventos,
+	invh.tiempo_medio 
+    */
+    public InvoiceHistory(
+            String autorizador, 
+            Integer autorizacion, 
+            Integer autorizacion_devolucion,
+            Integer consulta_protocolo, 
+            Integer consulta_registro, 
+            Integer discapacidad, 
+            Integer estado_servicio,
+            Integer recepcion_eventos, 
+            String tiempo_medio) {
         this.autorizador = autorizador;
         this.autorizacion = autorizacion;
         this.autorizacion_devolucion = autorizacion_devolucion;
         this.consulta_protocolo = consulta_protocolo;
         this.consulta_registro = consulta_registro;
-        this.estado_servicio = estado_servicio;
         this.discapacidad = discapacidad;
+        this.estado_servicio = estado_servicio;
         this.recepcion_eventos = recepcion_eventos;
         this.tiempo_medio = tiempo_medio;
     }
