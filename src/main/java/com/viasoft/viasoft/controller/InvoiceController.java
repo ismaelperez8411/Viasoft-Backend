@@ -8,8 +8,10 @@ import java.util.Map;
 
 import com.viasoft.viasoft.models.InvoiceAvailableView;
 import com.viasoft.viasoft.models.InvoiceHistoryView;
+import com.viasoft.viasoft.models.LogUrlAvailable;
 import com.viasoft.viasoft.services.InvoiceAvailableService;
 import com.viasoft.viasoft.services.InvoiceViewService;
+import com.viasoft.viasoft.services.LogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping(path = "/api")
+@Tag(name = "Invoice service", description = "API para la gestión de la disponibilidad de los servcios por (provincia)")
 public class InvoiceController {
 
     @Autowired
@@ -29,6 +34,9 @@ public class InvoiceController {
 
     @Autowired
     private InvoiceAvailableService invAvailableService;
+
+    @Autowired
+    private LogService logService;
 
     // ---------------GET METHODS--------------------------
 
@@ -91,6 +99,12 @@ public class InvoiceController {
     @GetMapping(path = "/search/byDatetime")
     List<InvoiceHistoryView> getCurrentStatesFilterTime(@RequestParam(value = "q") String time) {
         return invViewService.getStatesForTime(time);
+    }
+
+    // devuelve un listado de logs de disponibilidad del sistema
+    @GetMapping(path = "/logs")
+    List<LogUrlAvailable> getUrlAvailability(@RequestParam(defaultValue = "") String time){
+        return logService.getAllLogs(time);
     }
 
     // ---------------POST METHODS--------------------------

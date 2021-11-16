@@ -20,6 +20,7 @@ public class LogService {
 
     // devuelve el estado actual de los servicios
     public List<LogUrlAvailable> getAllLogs(String fecha) {
+
         return logRepo.findAll();
     }
 
